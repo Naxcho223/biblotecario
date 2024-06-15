@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+</head>
+<body>
+    <form id="loginform" onsubmit="return validaElFormulario()">
+        <h2>Iniciar sesión</h2>
+        <label for="email"><b> Correo electrónico</b></label>
+        <input type = "email" placeholder="Ingresa tu Correo electrónico" name="email" id="email" required>
+        
+        
+        <label for="contraseña"><b> Contraseña</b></label>
+        <input type="contraseña" placeholder="Ingresa tu contraseña" name="contraseña" id="contraseña" required>
+
+        <label for ="iniciar sesion"><b> inciar sesión</b></label>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Botón con Evento</title>
+</head>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirección a otro enlace</title>
+</head>
+<body>
+    <button onclick="redirigir()">iniciar sesión</button>
+
+    <script>
+        function redirigir() {
+            // Cambia la ubicación actual del navegador a otro enlace
+            window.location.href = 'http://127.0.0.1:5500/01-intro-react/index.html?email=ignacioaltamirano04%40gmail.com&contrase%C3%B1a=nacho12345';
+        }
+    </script>
+</body>
+</html>
+
+<body>
+    <button id="miBoton">Haz clic aquí</button>
+
+    <script>
+        var boton = document.getElementById('miBoton');
+        boton.onclick = function() {
+            alert('¡Has iniciado sesion!');
+        };
+    </script>
+</body>
+</html>
+
+    </form>
+
+</body>
+</html>
