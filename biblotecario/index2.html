@@ -30,11 +30,18 @@
             <input type="password" id="contraseña" name="contraseña" minlength="6" required>
         </div>
         <div>
-            <input type="submit" value="Crear Usuario">
-        </div>
-    </form>
+            <input type ="submit" value="Guardar los datos y mostrarlos.">
+            <button id="miBoton">Haz clic aquí para crear el usario</button>
+            <script>
+                var boton = document.getElementById('miBoton');
+                boton.onclick = function() {
+                    alert('Se ha creado correctamente!.');
+                    
+                };
+        
+                
+     
+        </script>
 
-    <script>
-    </script>
 </body>
 </html>

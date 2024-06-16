@@ -15,12 +15,10 @@ function validarElformulario(){
     return false;{
 
     
-    return true;
-    
     }
         function isValidEmail(email){
             let re = /\S+@\S+\.\S+/;
             return re.test(email);
         }
 
-}
+}     return true;
