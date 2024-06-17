@@ -31,29 +31,26 @@
         </div>
         <div>
             <button type="button" id="miBoton">Haz clic aquí para crear el usario</button>
+            <button type="button" id="reset">Limpiar Base de Datos</button>
         </div>
 
         <div>
             <h2>Usuarios Registrados</h2>
-
-            <table><thead>
-                <tr>
-                    
-                    <th>nombre</th>
-                    <th>apellido</th>
-                    <th>email</th>
-                    <th>telefono</th>
-                    <th>contraseña</th>
-                                
-                </tr>
-            </thead>
-            <tbody id="usuarios"></tbody>
+            <table id="usuarios">
+                <thead>
+                    <tr>
+                        <th>nombre</th>
+                        <th>apellido</th>
+                        <th>email</th>
+                        <th>telefono</th>
+                        <th>contraseña</th>
+                    </tr>
+                </thead>
+            <tbody/>
             </table>
-        
         </div>
 
-            <script src = "source/uiLogic.js"></script>
-            <script src = "source/userLogic.js"></script>
-    
+        <script src = "source/userLogic.js"></script>
+        <script src = "source/uiLogic.js"></script>
 </body>
 </html>
