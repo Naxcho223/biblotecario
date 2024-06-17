@@ -1,11 +1,12 @@
 let userList = []
 function addUser(nombre,apellido,email,telefono,contraseña){
+    let hashPass = CryptoJS.SHA256(contraseña).toString(CryptoJS.enc.Hex);
     const usuario = {
         nombre: nombre,
         apellido: apellido,
         email: email,
         telefono: telefono,
-        contraseña: contraseña
+        contraseña: hashPass
     };
 
     
