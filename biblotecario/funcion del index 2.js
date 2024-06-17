@@ -26,3 +26,12 @@ function validarFormulario() {
     return true;
     
 }
+
+
+const usuarioGuardado = localStorage.getItem('usuario');
+
+
+const usuario = JSON.parse(usuarioGuardado);
+
+
+console.log(usuario);

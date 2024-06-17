@@ -30,18 +30,30 @@
             <input type="password" id="contraseña" name="contraseña" minlength="6" required>
         </div>
         <div>
-            <input type ="submit" value="Guardar los datos y mostrarlos.">
-            <button id="miBoton">Haz clic aquí para crear el usario</button>
-            <script>
-                var boton = document.getElementById('miBoton');
-                boton.onclick = function() {
-                    alert('Se ha creado correctamente!.');
-                    
-                };
-        
-                
-     
-        </script>
+            <button type="button" id="miBoton">Haz clic aquí para crear el usario</button>
+        </div>
 
+        <div>
+            <h2>Usuarios Registrados</h2>
+
+            <table><thead>
+                <tr>
+                    
+                    <th>nombre</th>
+                    <th>apellido</th>
+                    <th>email</th>
+                    <th>telefono</th>
+                    <th>contraseña</th>
+                                
+                </tr>
+            </thead>
+            <tbody id="usuarios"></tbody>
+            </table>
+        
+        </div>
+
+            <script src = "source/uiLogic.js"></script>
+            <script src = "source/userLogic.js"></script>
+    
 </body>
 </html>
