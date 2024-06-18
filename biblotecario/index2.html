@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    <title>Formulario de Creación de Usuario</title>
+    <title>Formulario de Creación de Bibliotecarios</title>
 </head>
 <body>
-    <h2>Formulario de Creación de Usuario</h2>
+    <h2>Formulario de Creación de Bibliotecarios</h2>
     <form id="formularioUsuario" onsubmit="return validarFormulario()">
         <div>
             <label for="nombre">Nombre:</label>
@@ -23,15 +23,14 @@
         </div>
         <div>
             <label for="telefono">Número de Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" placeholder="Ej. 1234567890" required>
-            <small>Debe ser un número de 10 dígitos</small>
+            <input type="tel" id="telefono" name="telefono" placeholder="Ej. +2281000000" required>
         </div>
         <div>
             <label for="contraseña">Contraseña:</label>
             <input type="password" id="contraseña" name="contraseña" minlength="6" required>
         </div>
         <div>
-            <button type="button" id="miBoton">Haz clic aquí para crear el usario</button>
+            <button type="button" id="miBoton">Crear Bibliotecario</button>
             <button type="button" id="reset">Limpiar Base de Datos</button>
         </div>
 
