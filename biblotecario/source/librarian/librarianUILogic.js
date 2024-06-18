@@ -1,6 +1,6 @@
-document.querySelector('#miBoton').addEventListener('click',guardarUsuario)
-document.querySelector('#reset').addEventListener('click', resetUsers)
-showUsers()
+document.querySelector('#crearBibliotecario').addEventListener('click',guardarBibliotecario)
+document.querySelector('#cerrarSesion').addEventListener('click',cerrarSesion)
+
 
 if (localStorage.token != "ADMIN") {
     bloquear()
@@ -9,45 +9,42 @@ if (localStorage.token != "ADMIN") {
     showUsers()
 }
 
-
-function guardarUsuario() {
-    const nombre = document.getElementById('nombre').value;
-    const apellido = document.getElementById('apellido').value;
+function guardarBibliotecario() {
+    const dni = document.getElementById('dni').value;
     const email = document.getElementById('email').value;
-    const telefono = document.getElementById('telefono').value;
     const contraseña = document.getElementById('contraseña').value;
 
-    addUser(nombre,apellido,email,telefono,contraseña)
+    addLibrarian(dni, email, contraseña)
     showUsers()
+    
 }
+
 
 function showUsers(){
     let users = getUsers(),
-    body = document.querySelector('#usuarios tbody')
+    body = document.querySelector('#bibliotecarios tbody')
+
+    const isLibrarian = (student) => student.token == "BIBLIOTECARIO";
+    const librarian = users.filter(isLibrarian);
 
     body.innerHTML = '';
 
-    for (let index = 0; index < users.length; index++) {
+    for (let index = 0; index < librarian.length; index++) {
+        console.log(librarian[index]);
         let row = body.insertRow(index),
-        nombreCell = row.insertCell(0),
-        apellidoCell = row.insertCell(1),
-        emailCell = row.insertCell(2),
-        telefonoCell = row.insertCell(3),
-        contraseñaCell = row.insertCell(4)
+        dniCell = row.insertCell(0),
+        emailCell = row.insertCell(1)
 
-        nombreCell.innerHTML = users[index].nombre;
-        apellidoCell.innerHTML = users[index].apellido;
-        emailCell.innerHTML = users[index].email;
-        telefonoCell.innerHTML = users[index].telefono;
-        contraseñaCell.innerHTML = users[index].contraseña;
+        dniCell.innerHTML = librarian[index].dni;
+        emailCell.innerHTML = librarian[index].email;
 
         body.appendChild(row);
     }
 }
 
-function resetUsers(){
-    localStorage.clear()
-    showUsers()
+function cerrarSesion(){
+    localStorage.removeItem('token');
+    location.reload()
 }
 
 function bloquear() {
@@ -79,4 +76,3 @@ function bloquear() {
     // Añadir el overlay al cuerpo del documento
     document.body.appendChild(overlay);
 }
-

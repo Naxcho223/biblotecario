@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <title>Formulario de Creación de Bibliotecario</title>
 </head>
 <body>
     <h2>Formulario de Creación de Bibliotecario</h2>
-    <form id="formularioBibliotecario" onsubmit="return validarFormulario()">
+    <form id="formularioBibliotecario">
         <div>
             <label for="dni">DNI:</label>
             <input type="text" id="dni" name="dni" required>
@@ -21,6 +22,23 @@
             <input type="password" id="contraseña" name="contraseña" minlength="6" required>
         </div>
         <div>
-            <input type="submit" value="Crear Bibliotecario">
+            <button type="button" id="crearBibliotecario">Crear Bibliotecario</button>
+            <button type="button" id="cerrarSesion">Cerrar Sesion</button>
         </div>
+
+        <div>
+            <h2>Bibliotecarios Registrados</h2>
+            <table id="bibliotecarios">
+                <thead>
+                    <tr>
+                        <th>DNI</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+            <tbody/>
+            </table>
+        </div>
+
+        <script src="./source/librarian/librarianLogic.js"></script>
+        <script src="./source/librarian/librarianUILogic.js"></script>
     </form>

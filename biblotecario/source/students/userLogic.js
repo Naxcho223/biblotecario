@@ -10,7 +10,7 @@ function addUser(nombre,apellido,email,telefono,contraseña){
             email: email,
             telefono: telefono,
             contraseña: hashPass,
-            token: 'BIBLIOTECARIO'
+            token: 'ESTUDIANTE'
         };
         alert('Usuario guardado correctamente en el localStorage');      
         userList.push(usuario) 

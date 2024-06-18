@@ -1,6 +1,7 @@
 let userList = []
 
 function validateUser(email, password) {
+    let validation = false
     let users = loadUsers()
 
     let user = users.find(user => user.email == email)
@@ -10,12 +11,15 @@ function validateUser(email, password) {
         if (user.contraseña === hashedInputPassword) {
             alert('Inicio de sesión exitoso');
             localStorage.setItem('token', user.token);
+            validation = true
         } else {
             alert('Contraseña incorrecta');
         }
     } else {
         alert('Usuario no encontrado');
     }
+
+    return validation
 }
 
 function loadUsers(){
