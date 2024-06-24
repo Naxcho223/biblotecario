@@ -1,8 +1,18 @@
 let booksList = [];
 
+let  sIsbn = document.querySelector('#isbn').value,
+sNombre = document.querySelector('#title').value,
+sAutor = document.querySelector('#author').value,
+sTipo = document.querySelector('#topic').value,
+sCopias = document.querySelector('#copies').value;
 
 // Función para agregar un libro al sistema
 function addBookToSystem(isbn,title, author, topic, copies) {
+    if (sIsbn == "" || sNombre == "" || sAutor == "" || sTipo == "" || sCopias == ""){
+        console.log(" completar campos")
+
+    }else{
+        
     let newBook = {
         isbn: isbn,
         nombre: title,
@@ -14,6 +24,7 @@ function addBookToSystem(isbn,title, author, topic, copies) {
     booksList.push(newBook);
     SaveJson(booksList);
 
+    }
 }
 
 function SaveJson(booksList){
@@ -32,3 +43,8 @@ function loadStorage(){
 
     return booksList
 };
+
+function getBookList(){
+    return booksList;
+   
+}
