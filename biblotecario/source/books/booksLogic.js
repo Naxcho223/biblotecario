@@ -42,16 +42,13 @@ function loadStorage(){
 
 function validationsBooks(isbn, title, author,topic,copies){
     let isValid = false
-    console.log(isbn);
-    console.log(title);
-    console.log(author);
-    console.log(topic);
-    console.log(copies);
     if(isbn == "" || title == ""|| author == "" || topic == "" || copies == ""){
         alert("rellanar campos")
     }else if(searchBook(isbn) == true){
         alert("ya existe el libro")
-    }else{
+    }else if(copies < 0){
+    }
+    else{
         isValid = true
     }
     
@@ -68,7 +65,6 @@ function searchBook(disbn){
     while(encontro == false && i < booksList.length){
 
         if(booksList[i].isbn === disbn){
-            console.log("encontro");
             encontro=true;
         }else{
         i++
@@ -77,7 +73,6 @@ function searchBook(disbn){
     
 
     }
-    console.log(encontro);
     return encontro
 
 }

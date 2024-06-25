@@ -9,7 +9,11 @@
 </head>
 <body>
     <h2>Formulario de Creación de Estudiante</h2>
-    <form id="formularioUsuario" onsubmit="return validarFormulario()">
+    <form id="formularioUsuario">
+        <div>
+            <label for="credencial">Credencial:</label>
+            <input type="text" id="credencial" name="credencial" required>
+        </div>
         <div>
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
@@ -41,6 +45,7 @@
             <table id="usuarios">
                 <thead>
                     <tr>
+                        <th>credencial</th>
                         <th>nombre</th>
                         <th>apellido</th>
                         <th>email</th>

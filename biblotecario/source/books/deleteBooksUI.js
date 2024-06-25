@@ -10,9 +10,10 @@ if (localStorage.token != "ADMIN" && localStorage.token != "BIBLIOTECARIO") {
 
 function deleteBook(){
     let deleteIsbn = document.getElementById('deleteIsbn').value;
-    if(validateDeletion(deleteIsbn)){
-        deleteBookToSystem(deleteIsbn)
-    }else{ alert("no se borro")}
+    let deleteCopies = document.getElementById('deleteCopies').value;
+    if(validateDeletion(deleteIsbn, deleteCopies)){
+        deleteBookToSystem(deleteIsbn, deleteCopies)
+    }
     drawBooks()
 
 
@@ -23,7 +24,6 @@ function deleteBook(){
 
 function drawBooks(){
     let list = loadStorage()
-    console.log(list)
     tbody = document.querySelector('#deleteBookList tbody');
     tbody.innerHTML = '';
  

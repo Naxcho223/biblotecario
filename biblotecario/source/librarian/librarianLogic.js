@@ -2,7 +2,7 @@ let userList = []
 
 function addLibrarian(dni, email, contraseña){
     if (!validar(dni, email, contraseña)){
-        alert('Intentelo nuevamente');
+        
     }else{
         let hashPass = CryptoJS.SHA256(contraseña).toString(CryptoJS.enc.Hex);
         const librarian = {
@@ -11,7 +11,6 @@ function addLibrarian(dni, email, contraseña){
             contraseña: hashPass,
             token: 'BIBLIOTECARIO'
         };
-        alert('Usuario creado correctamente');      
         userList.push(librarian) 
         SaveJson(userList)   
     }
@@ -23,11 +22,24 @@ function validar(dni, email, contraseña){
 
     if (dni == '' || email == '' || contraseña == ''){
         alert('Por favor, complete todos los campos');
-    }
-    else {
-        return true;
-    }
+    }else if (validarExistencia(dni, email)){
+        validacion = true;
+    }    
+    return validacion
+}
 
+function validarExistencia(dni, email){
+    let validacion = true;
+    let i = 0;
+
+    while (validacion == true && i < userList.length){
+        if (userList[i].dni == dni || userList[i].email.toLowerCase() == email.toLowerCase()){
+            validacion = false;
+            alert('El bibliotecario ya existe')
+        }else{
+            i++;
+        }
+    }
     return validacion
 }
 

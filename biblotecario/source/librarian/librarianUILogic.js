@@ -31,7 +31,6 @@ function showUsers(){
     body.innerHTML = '';
 
     for (let index = 0; index < librarian.length; index++) {
-        console.log(librarian[index]);
         let row = body.insertRow(index),
         dniCell = row.insertCell(0),
         emailCell = row.insertCell(1)

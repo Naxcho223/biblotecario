@@ -12,13 +12,15 @@ if (localStorage.token != "ADMIN" && localStorage.token != "BIBLIOTECARIO") {
 
 
 function guardarUsuario() {
+    const credencial = document.getElementById('credencial').value;
     const nombre = document.getElementById('nombre').value;
     const apellido = document.getElementById('apellido').value;
     const email = document.getElementById('email').value;
     const telefono = document.getElementById('telefono').value;
     const contraseña = document.getElementById('contraseña').value;
+    
 
-    addUser(nombre,apellido,email,telefono,contraseña)
+    addUser(credencial, nombre,apellido,email,telefono,contraseña)
     showUsers()
 }
 
@@ -33,12 +35,13 @@ function showUsers(){
 
     for (let index = 0; index < students.length; index++) {
         let row = body.insertRow(index),
-        nombreCell = row.insertCell(0),
-        apellidoCell = row.insertCell(1),
-        emailCell = row.insertCell(2),
-        telefonoCell = row.insertCell(3)
+        credencialCell = row.insertCell(0),
+        nombreCell = row.insertCell(1),
+        apellidoCell = row.insertCell(2),
+        emailCell = row.insertCell(3),
+        telefonoCell = row.insertCell(4)
         
-
+        credencialCell.innerHTML = students[index].credencial;
         nombreCell.innerHTML = students[index].nombre;
         apellidoCell.innerHTML = students[index].apellido;
         emailCell.innerHTML = students[index].email;
