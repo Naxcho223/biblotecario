@@ -36,14 +36,14 @@ function showUsers(){
         nombreCell = row.insertCell(0),
         apellidoCell = row.insertCell(1),
         emailCell = row.insertCell(2),
-        telefonoCell = row.insertCell(3),
-        contraseñaCell = row.insertCell(4)
+        telefonoCell = row.insertCell(3)
+        
 
         nombreCell.innerHTML = students[index].nombre;
         apellidoCell.innerHTML = students[index].apellido;
         emailCell.innerHTML = students[index].email;
         telefonoCell.innerHTML = students[index].telefono;
-        contraseñaCell.innerHTML = students[index].contraseña;
+        
 
         body.appendChild(row);
     }
@@ -56,8 +56,15 @@ function resetUsers(){
 
 function cerrarSesion(){
     localStorage.removeItem('token');
-    location.reload()
+    navigateToMenu()
 }
+
+function navigateToMenu() {
+    const currentUrl = window.location.href;
+    const newUrl = currentUrl.replace('studentForm.html', 'login.html');
+    window.location.href = newUrl;
+}
+
 
 function bloquear() {
     // Crear un elemento div que cubrirá toda la pantalla

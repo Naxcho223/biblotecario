@@ -1,15 +1,11 @@
 let booksList = [];
 
-let  sIsbn = document.querySelector('#isbn').value,
-sNombre = document.querySelector('#title').value,
-sAutor = document.querySelector('#author').value,
-sTipo = document.querySelector('#topic').value,
-sCopias = document.querySelector('#copies').value;
 
 // Función para agregar un libro al sistema
 function addBookToSystem(isbn,title, author, topic, copies) {
-    if (sIsbn == "" || sNombre == "" || sAutor == "" || sTipo == "" || sCopias == ""){
-        console.log(" completar campos")
+    
+    if (isbn == "" || title == "" || author == "" || topic == "" || copies == ""){
+       
 
     }else{
         
@@ -17,11 +13,12 @@ function addBookToSystem(isbn,title, author, topic, copies) {
         isbn: isbn,
         nombre: title,
         autor: author,
-        tipo: topic,
+        tema: topic,
         cantidad: copies
     };
         
     booksList.push(newBook);
+    
     SaveJson(booksList);
 
     }
@@ -35,8 +32,10 @@ localStorage.setItem('booksList', JSON.stringify(booksList))
 function loadStorage(){
     let bookLocalStorage = localStorage.getItem('booksList')
     if(bookLocalStorage == null){
+      
         booksList =[];
     } else{
+      
         booksList = JSON.parse(bookLocalStorage)
     }
     
@@ -44,7 +43,3 @@ function loadStorage(){
     return booksList
 };
 
-function getBookList(){
-    return booksList;
-   
-}
