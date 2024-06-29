@@ -10,7 +10,9 @@ function addBookToSystem(isbn,title, author, topic, copies) {
             nombre: title,
             autor: author,
             tema: topic,
-            cantidad: copies
+            cantidad: copies,
+            disponible:true
+            
         };
             
         booksList.push(newBook);

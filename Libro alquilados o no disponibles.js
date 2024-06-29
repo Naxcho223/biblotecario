@@ -1,30 +1,37 @@
-function alquilarLibro() {
-    let libroSeleccionado = document.getElementById("libro").value;
+/*mostrar listado de libros*/
+let booksListStundents = []//listado
 
-    // Lógica para cambiar la disponibilidad del libro seleccionado
-    switch (libroSeleccionado) {
-        case "libro1":
-            if (document.getElementById("disponible_libro1").textContent === "Sí") {
-                document.getElementById("disponible_libro1").textContent = "No";
-            } else {
-                alert("Este libro ya está alquilado.");
-            }
-            break;
-        case "libro2":
-            if (document.getElementById("disponible_libro2").textContent === "Sí") {
-                document.getElementById("disponible_libro2").textContent = "No";
-            } else {
-                alert("Este libro ya está alquilado.");
-            }
-            break;
-        case "libro3":
-            if (document.getElementById("disponible_libro3").textContent === "Sí") {
-                document.getElementById("disponible_libro3").textContent = "No";
-            } else {
-                alert("Este libro ya está alquilado.");
-            }
-            break;
-        default:
-            alert("Selecciona un libro válido.");
+
+function loadStorage(){
+    let bookLocalStorage = localStorage.getItem('booksListStudents')
+    if(bookLocalStorage == null){
+      
+        booksList =[];
+    } else{
+      
+        booksList = JSON.parse(bookLocalStorage)
     }
+    
+
+    return booksList
+};
+
+
+function searchBook(titulo, tema, autor){ 
+
+    encontro = false
+    let i = 0;
+    while(encontro == false && i < booksList.length){
+
+        if(booksList[i].nombre === titulo || booksList[i].autor === autor || booksList[i].tema === tema ){
+            encontro=true;
+        }else{
+        i++
+
+        }
+    
+
+    }
+    return encontro
+
 }
