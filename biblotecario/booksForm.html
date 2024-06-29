@@ -25,10 +25,7 @@
                     <input type="text" id="author" placeholder="Autor" required>
                     <input type="text" id="topic" placeholder="Tema" required>
                     <div id="physicalOptions">
-                        <input type="number" id="copies" placeholder="Número de Copias">
-                    </div>
-                    <div id="digitalOptions">
-                        <!-- <input type="file" id="file" accept=".pdf,.epub" required> -->
+                        <input type="number" id="copies" placeholder="Número de Copias" min="1">
                     </div>
                     <button id="addBook" type="submit">Agregar Libro</button>
                 </form>
@@ -43,18 +40,16 @@
                         <th>Autor</th>
                         <th>Tema</th>
                         <th>Cantidad</th>
-                        <th>seleccionar</th>
-                        
                     </tr>
                 </thead>
-                <tbody id="bookListBody">
+                <tbody>
                 </tbody>
             </table>
 
             
         
     
-    <script src="funcion del index 4.js"></script>
-    <script src="./source/books/booksULogic.js"></script>
+    <script src="./source/books/booksLogic.js"></script>
+    <script src="./source/books/booksUILogic.js"></script>
 </body>
 </html>

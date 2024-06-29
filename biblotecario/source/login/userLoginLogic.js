@@ -9,7 +9,6 @@ function validateUser(email, password) {
     if (user) {
         let hashedInputPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
         if (user.contraseña === hashedInputPassword) {
-            alert('Inicio de sesión exitoso');
             localStorage.setItem('token', user.token);
             validation = true
         } else {

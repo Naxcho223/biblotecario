@@ -1,10 +1,11 @@
 let userList = []
-function addUser(nombre,apellido,email,telefono,contraseña){
-    if (!validar(nombre,apellido,email,telefono,contraseña)){
+function addUser(credencial, nombre,apellido,email,telefono,contraseña){
+    if (!validar(credencial, nombre,apellido,email,telefono,contraseña)){
         alert('Intentelo nuevamente');
     }else{
         let hashPass = CryptoJS.SHA256(contraseña).toString(CryptoJS.enc.Hex);
         const usuario = {
+            credencial: credencial,
             nombre: nombre,
             apellido: apellido,
             email: email,
@@ -12,7 +13,6 @@ function addUser(nombre,apellido,email,telefono,contraseña){
             contraseña: hashPass,
             token: 'ESTUDIANTE'
         };
-        alert('Usuario guardado correctamente en el localStorage');      
         userList.push(usuario) 
         SaveJson(userList)   
     }
@@ -43,19 +43,34 @@ function addUser(nombre,apellido,email,telefono,contraseña){
     }
 
 
-    function validar(nombre,apellido,email,telefono,contraseña){
+    function validar(credencial, nombre,apellido,email,telefono,contraseña){
         let validacion = false;
          const regex = /^[0-9]+$/;
     
-        if (nombre == '' || apellido == '' || email == '' || contraseña == ''){
+        if (credencial == '' || nombre == '' || apellido == '' || email == '' || contraseña == ''){
             alert('Por favor, complete todos los campos');
         } else if (telefono != '' && !regex.test(telefono)){
             alert('Por favor, ingrese un número de teléfono válido');
+        }else if(validarExistencia(credencial, email)){
+            validacion = true;
         }
-        else {
-            return true;
-        }
-    
         return validacion
     }
+
+    function validarExistencia(credencial, email){
+        let validacion = true;
+        let i = 0;
+    
+        while (validacion == true && i < userList.length){
+            if (userList[i].credencial == credencial || userList[i].email.toLowerCase() == email.toLowerCase()){
+                validacion = false;
+                alert('El estudiante ya existe')
+            }else{
+                i++;
+            }
+        }
+        return validacion
+    }
+
+
  

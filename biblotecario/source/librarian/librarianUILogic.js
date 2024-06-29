@@ -1,3 +1,4 @@
+
 document.querySelector('#crearBibliotecario').addEventListener('click',guardarBibliotecario)
 document.querySelector('#cerrarSesion').addEventListener('click',cerrarSesion)
 
@@ -30,7 +31,6 @@ function showUsers(){
     body.innerHTML = '';
 
     for (let index = 0; index < librarian.length; index++) {
-        console.log(librarian[index]);
         let row = body.insertRow(index),
         dniCell = row.insertCell(0),
         emailCell = row.insertCell(1)
@@ -44,10 +44,17 @@ function showUsers(){
 
 function cerrarSesion(){
     localStorage.removeItem('token');
-    location.reload()
+    navigateToMenu()
 }
 
-function bloquear() {
+function navigateToMenu() {
+    const currentUrl = window.location.href;
+    const newUrl = currentUrl.replace('bibliotecarioForm.html', 'login.html');
+    window.location.href = newUrl;
+}
+
+
+ function bloquear() {
     // Crear un elemento div que cubrirá toda la pantalla
     const overlay = document.createElement('div');
     
