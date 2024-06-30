@@ -138,14 +138,16 @@ function reserve(isbn){
 
   
     if(libro != false && libro.disponible == true){
-        libro.disponible =false
+        
         let i = 0;
-        while(libro.disponible == false && i < booksList.length){
+        while(libro.disponible == true && i < booksList.length){
+
     
             if(booksList[i].isbn === libro.isbn){
+                libro.disponible = false
                 booksList[i] = libro;
                 localStorage.setItem('booksList', JSON.stringify(booksList));
-                alert(`has reservado el libro ${libro[i].nombre}`)
+                
             }else{
             i++
     
