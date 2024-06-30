@@ -11,7 +11,7 @@ function addUser(credencial, nombre,apellido,email,telefono,contraseña){
             email: email,
             telefono: telefono,
             contraseña: hashPass,
-            token: 'ESTUDIANTE'
+            token: JSON.stringify(['ESTUDIANTE',email])
         };
         userList.push(usuario) 
         SaveJson(userList)   

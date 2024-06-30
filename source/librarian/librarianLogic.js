@@ -9,7 +9,7 @@ function addLibrarian(dni, email, contraseña){
             dni: dni,
             email: email,
             contraseña: hashPass,
-            token: 'BIBLIOTECARIO'
+            token: JSON.parse(['BIBLIOTECARIO', email])
         };
         userList.push(librarian) 
         SaveJson(userList)   

@@ -46,11 +46,15 @@ function drawBooks(){
 /* toma los valores de los input y los pasa como parametros ejecuta 
 validacion y reserva, muestra listado actualizado*/
  function reserveBook(isbn){
+    let token = JSON.parse(localStorage.getItem("token"))
+    console.log(token[0])
     
-    if(validatedReserve(isbn)){
+    if(validatedReserve(isbn) && token[0] == 'ESTUDIANTE'){
+
+        
         
 reserve(isbn)
-    }
+    }else{alert('No sos estudiante')}
     drawBooks()
 
 
