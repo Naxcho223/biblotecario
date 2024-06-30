@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Inicio de sesión</title>
+</head>
+<body>
+    <form id="loginform" onsubmit="return validaElFormulario()">
+        <h2>Iniciar sesión</h2>
+        <label for="email"><b> Correo electrónico</b></label>
+        <input id="email" placeholder="Ingresa tu Correo electrónico" name="email" id="email" required>
+        
+        
+        <label for="contraseña"><b> Contraseña</b></label>
+        <input type="password" id="password" placeholder="Ingresa tu contraseña" id="contraseña" required>
+
+        <label for ="iniciar sesion"><b> inciar sesión</b></label>
+
+    <button type="button" id="buttonLogin">Haz clic aquí</button>
+    </form>
+
+    <script src="./source/login/userLoginLogic.js"></script>
+    <script src="./source/login/userLoginUILogic.js"></script>
+
+</body>
+</html>
