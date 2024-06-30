@@ -53,28 +53,6 @@ function validateSearch(reserveTitulo, reserveAutor, reserveTema){
     return encontro
 }
 
-/* valida si el libro existe y si hay libros disponibles
-existe/disponible = reserva, no existe/ no disponible = no se reserva o no existe*/
-// function resevatedBook(reserveTitulo, reserveAutor, reserveTema){
-   
-//     let reservo = false;
-//     let i = 0
-//     while (reservo == false && i < booksList.length) {
-//         if(booksList[i].nombre == reserveTitulo || booksList[i].autor == reserveAutor || booksList[i].tema == reserveTema){
-//             if(booksList[i].cantidad == 1){
-//                 booksList.splice(i,1)
-//                 reservo = true
-//             }else if(booksList[i].cantidad > 0){
-//                 booksList[i].cantidad = booksList[i].cantidad - 1
-//                 reservo = true
-//             }
-//         }else{
-//             i++
-//         }
-
-        
-//     }
-// }
 
 /* cargar el storage */
 function loadStorage(){

@@ -8,7 +8,17 @@ drawBooks();
 loadStorage()
 
 function drawBooks(){
-    let list = loadStorage();
+    let listSorage = loadStorage();
+    let list =[]
+    console.log(list)
+    for(let i = 0; i < listSorage.length;i++){
+        if(listSorage[i].disponible == true){
+            list.push(listSorage[i])
+
+        }
+
+
+    }
   
     tbody = document.querySelector('#bookListStudents tbody');
     tbody.innerHTML = '';
