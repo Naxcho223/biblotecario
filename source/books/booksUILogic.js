@@ -81,3 +81,12 @@ function bloquear() {
   // Añadir el overlay al cuerpo del documento
   document.body.appendChild(overlay);
 }
+//volver
+document.querySelector('#back').addEventListener('click',navigateToMenu)
+
+ // volver a menu
+    function navigateToMenu() {
+        const currentUrl = window.location.href;
+        const newUrl = currentUrl.replace('booksForm.html', 'menu.html');
+        window.location.href = newUrl;
+    }

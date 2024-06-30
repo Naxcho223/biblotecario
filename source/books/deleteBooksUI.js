@@ -79,3 +79,12 @@ function drawBooks(){
    document.body.appendChild(overlay);
  }
  
+ //volver
+document.querySelector('#back').addEventListener('click',navigateToMenu)
+
+// volver a menu
+   function navigateToMenu() {
+       const currentUrl = window.location.href;
+       const newUrl = currentUrl.replace('borrowBooks.html', 'menu.html');
+       window.location.href = newUrl;
+   }

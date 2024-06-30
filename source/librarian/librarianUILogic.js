@@ -1,60 +1,45 @@
-document.querySelector('#miBoton').addEventListener('click',guardarUsuario)
-document.querySelector('#reset').addEventListener('click', resetUsers)
-document.querySelector('#cerrarSesion').addEventListener('click',cerrarSesion)
-showUsers()
 
-if (localStorage.token != "ADMIN" && localStorage.token != "BIBLIOTECARIO") {
+document.querySelector('#crearBibliotecario').addEventListener('click',guardarBibliotecario)
+document.querySelector('#cerrarSesion').addEventListener('click',cerrarSesion)
+
+
+if (localStorage.token != "ADMIN") {
     bloquear()
     
 }else{
     showUsers()
 }
 
-
-function guardarUsuario() {
-    const credencial = document.getElementById('credencial').value;
-    const nombre = document.getElementById('nombre').value;
-    const apellido = document.getElementById('apellido').value;
+function guardarBibliotecario() {
+    const dni = document.getElementById('dni').value;
     const email = document.getElementById('email').value;
-    const telefono = document.getElementById('telefono').value;
     const contraseña = document.getElementById('contraseña').value;
-    
 
-    addUser(credencial, nombre,apellido,email,telefono,contraseña)
+    addLibrarian(dni, email, contraseña)
     showUsers()
+    
 }
+
 
 function showUsers(){
     let users = getUsers(),
-    body = document.querySelector('#usuarios tbody')
+    body = document.querySelector('#bibliotecarios tbody')
 
-    const isStudent = (student) => student.token == "ESTUDIANTE";
-    const students = users.filter(isStudent);
+    const isLibrarian = (student) => student.token == "BIBLIOTECARIO";
+    const librarian = users.filter(isLibrarian);
 
     body.innerHTML = '';
 
-    for (let index = 0; index < students.length; index++) {
+    for (let index = 0; index < librarian.length; index++) {
         let row = body.insertRow(index),
-        credencialCell = row.insertCell(0),
-        nombreCell = row.insertCell(1),
-        apellidoCell = row.insertCell(2),
-        emailCell = row.insertCell(3),
-        telefonoCell = row.insertCell(4)
-        
-        credencialCell.innerHTML = students[index].credencial;
-        nombreCell.innerHTML = students[index].nombre;
-        apellidoCell.innerHTML = students[index].apellido;
-        emailCell.innerHTML = students[index].email;
-        telefonoCell.innerHTML = students[index].telefono;
-        
+        dniCell = row.insertCell(0),
+        emailCell = row.insertCell(1)
+
+        dniCell.innerHTML = librarian[index].dni;
+        emailCell.innerHTML = librarian[index].email;
 
         body.appendChild(row);
     }
-}
-
-function resetUsers(){
-    localStorage.clear()
-    showUsers()
 }
 
 function cerrarSesion(){
@@ -64,12 +49,12 @@ function cerrarSesion(){
 
 function navigateToMenu() {
     const currentUrl = window.location.href;
-    const newUrl = currentUrl.replace('studentForm.html', 'login.html');
+    const newUrl = currentUrl.replace('bibliotecarioForm.html', 'login.html');
     window.location.href = newUrl;
 }
 
 
-function bloquear() {
+ function bloquear() {
     // Crear un elemento div que cubrirá toda la pantalla
     const overlay = document.createElement('div');
     
@@ -99,3 +84,13 @@ function bloquear() {
     document.body.appendChild(overlay);
 }
 
+
+//volver
+document.querySelector('#back').addEventListener('click',navigateToMenu)
+
+ // volver a menu
+    function navigateToMenu() {
+        const currentUrl = window.location.href;
+        const newUrl = currentUrl.replace('bibliotecarioForm.html', 'menu.html');
+        window.location.href = newUrl;
+    }

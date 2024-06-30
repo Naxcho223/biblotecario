@@ -1,5 +1,8 @@
 //corregir no va reservedbook en addeventlistener
 document.getElementById('searchBook').addEventListener('click',reserveBook )
+//volver
+document.querySelector('#back').addEventListener('click',navigateToMenu)
+
 
 drawBooks();
 loadStorage()
@@ -48,3 +51,10 @@ reserve(isbn)
 /*let reserveTitulo = document.getElementById('title').value;
     let reserveAutor = document.getElementById('author').value;
     let reserveTema = document.getElementById('topic').value;*/
+
+    // volver a menu
+    function navigateToMenu() {
+        const currentUrl = window.location.href;
+        const newUrl = currentUrl.replace('borrowBooks.html', 'menu.html');
+        window.location.href = newUrl;
+    }
