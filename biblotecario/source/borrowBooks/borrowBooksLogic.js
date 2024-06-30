@@ -137,7 +137,7 @@ function reserve(isbn){
     let libro =searchBookIsbn(isbn)
 
   
-    if(libro != false && libro.disponible === true){
+    if(libro != false && libro.disponible == true){
         libro.disponible =false
         let i = 0;
         while(libro.disponible == false && i < booksList.length){
@@ -145,6 +145,7 @@ function reserve(isbn){
             if(booksList[i].isbn === libro.isbn){
                 booksList[i] = libro;
                 localStorage.setItem('booksList', JSON.stringify(booksList));
+                alert(`has reservado el libro ${libro[i].nombre}`)
             }else{
             i++
     
@@ -159,6 +160,4 @@ function reserve(isbn){
 loadStorage()
 }
 
-///  en lista de libros estudiante buscar y reemplazar en el storage y bookList 
-//el 
-//atributo del objeto libro seleccionado 
+
