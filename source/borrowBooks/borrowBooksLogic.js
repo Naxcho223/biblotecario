@@ -126,6 +126,7 @@ function reserve(isbn){
                 booksList[i] = libro;
                 localStorage.setItem('booksList', JSON.stringify(booksList));
                 
+                
             }else{
             i++
     
@@ -139,5 +140,51 @@ function reserve(isbn){
 
 loadStorage()
 }
+
+function createReport(isbn, token){
+       
+       let libro =searchBookIsbn(isbn)
+       let fecha =new Date()
+       let reporte = {
+        isbn: libro.isbn,
+        mail: token[1],
+        fecha: fecha.toLocaleDateString()
+
+       }
+       libro.reservas.push(reporte)
+       
+       let i = 0;
+       let encontro = false
+       while( encontro == false && i < booksList.length){
+
+   
+           if(booksList[i].isbn == libro.isbn){
+              
+               booksList[i] = libro;
+               localStorage.setItem('booksList', JSON.stringify(booksList));
+               
+               encontro = true
+           }else{
+           i++
+   
+           }
+       
+   
+       }
+
+       
+    //    
+        
+       
+
+
+}
+// buscar el libro ---
+// agregar nuevo reporte al libro en la lista de registros
+// el reporte tiene que tener el mail del usuario y fecha
+// actualizar la lista (bookList y localStorage)
+
+
+
 
 

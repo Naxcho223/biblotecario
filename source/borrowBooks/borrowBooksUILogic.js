@@ -53,13 +53,17 @@ validacion y reserva, muestra listado actualizado*/
 
         
         
-reserve(isbn)
+    reserve(isbn)
+    createReport(isbn, token)
     }else{alert('No sos estudiante')}
     drawBooks()
 
 
 
 }
+
+
+
 
 
 /*let reserveTitulo = document.getElementById('title').value;
