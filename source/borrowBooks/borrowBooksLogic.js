@@ -93,38 +93,40 @@ function loadStorage(){
 
 function searchBookIsbn(isbn){ 
 
-    let encontro = false
-    let libroEncontrado
+    encontro = false
+    let libro=[]
+   
     let i = 0;
     while(encontro == false && i < booksList.length){
 
-        if(booksList[i].isbn == isbn){
-            libroEncontrado=booksList[i];
-            encontro=true
-
-
+        if(booksList[i].isbn === isbn){
+            libro=booksList[i];
+            encontro = true
+            console.log(libro)
+            return libro
+            
         }else{
         i++
 
         }
     
         
+        
     }
-    
-        return libroEncontrado
+   
+
 
 }
 
 function validatedReserve(isbn){
-    let libro = searchBookIsbn(isbn)
-    console.log(libro.disponible)
-
-    if(libro.disponible == true){
+    let libro =searchBookIsbn(isbn)
+    
+    if(libro.disponible != true){
         
         return true
         
     }else{ alert ("el libro seleccionado no se encuentra disponible")
-        };
+        return false};
    
 
 
@@ -135,9 +137,9 @@ function validatedReserve(isbn){
 se busca el mismo objeto en bookslist y se reemplaza por el objeto editado */
 function reserve(isbn){
     let libro =searchBookIsbn(isbn)
+  console.log(libro)
 
-  
-    if(libro != false && libro.disponible === true){
+    if(libro != null && libro.disponible === true){
         libro.disponible =false
         let i = 0;
         while(libro.disponible == false && i < booksList.length){

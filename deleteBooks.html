@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminacion de Libros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <body>
+        <div class="container">
+            <h1>Eliminacion de Libros</h1>
+            
+            <div id="deleteBook">
+                <h2>Eliminar Libros</h2>
+                
+                <form id="deleteBookForm">
+                    <input type="text" id="deleteIsbn" placeholder="isbn" required>
+                    
+                    <div id="physicalOptions">
+                        <input type="number" id="deleteCopies" placeholder="Número de Copias" min="1">
+                    </div>
+                   
+                    <button id="buttonDeleteBook" type="submit">Borrar Libro</button>
+                </form>
+              
+            </div>
+            <h2>Listado de Libros</h2>
+            <table id="deleteBookList">
+                <thead>
+                    <tr>
+                        <th>Isbn</th>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Tema</th>
+                        <th>Cantidad</th>
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody >
+                </tbody>
+            </table>
+
+            
+        
+    
+    <script src="./source/books/deleteBooksLogic.js"></script>
+    <script src="./source/books/deleteBooksUI.js"></script>
+</body>
+</html>

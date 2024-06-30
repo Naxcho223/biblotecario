@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Libros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <body>
+        <div class="container">
+            <h1>Gestión de Libros</h1>
+            
+            <div id="addBooks">
+                <h2>Cargar Libro</h2>
+                <label>
+                    <input type="radio" name="bookType" value="physical" checked> Libro Físico
+                </label>
+                <label>
+                    <input type="radio" name="bookType" value="digital"> Libro Digital
+                </label>
+                <form id="addBookForm">
+                    <input type="text" id="isbn" placeholder="isbn" required>
+                    <input type="text" id="title" placeholder="Título" required>
+                    <input type="text" id="author" placeholder="Autor" required>
+                    <input type="text" id="topic" placeholder="Tema" required>
+                    <div id="physicalOptions">
+                        <input type="number" id="copies" placeholder="Número de Copias" min="1">
+                    </div>
+                    <button id="addBook" type="submit">Agregar Libro</button>
+                </form>
+                <p id="addBookMessage" class="message"></p>
+            </div>
+            <h2>Listado de Libros</h2>
+            <table id="bookList">
+                <thead>
+                    <tr>
+                        <th>Isbn</th>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Tema</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            
+        
+    
+    <script src="./source/books/booksLogic.js"></script>
+    <script src="./source/books/booksUILogic.js"></script>
+</body>
+</html>
