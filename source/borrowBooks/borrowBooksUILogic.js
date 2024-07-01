@@ -11,7 +11,7 @@ function drawBooks(){
     let userStorage = loadStorageUsers();
     let list =[]
     for(let i = 0; i < listSorage.length;i++){
-        if(listSorage[i].disponible == true){
+        if(listSorage[i].cantDisponible > 0){
             list.push(listSorage[i])
 
         }
@@ -25,21 +25,20 @@ function drawBooks(){
 
  
  for(let i =0; i < list.length; i++){
-    console.log("entro al for" + list[i].isbn );
    let row = tbody.insertRow(i);
     let nombreCell = row.insertCell(0),
     autorCell = row.insertCell(1),
     temaCell = row.insertCell(2),
     cantidadCell = row.insertCell(3);
-    cantidadButton = row.insertCell(4);
+    reserveButton = row.insertCell(4);
  
     
      nombreCell.innerHTML = list[i].nombre;
      autorCell.innerHTML = list[i].autor;
      temaCell.innerHTML = list[i].tema;
-     cantidadCell.innerHTML = list[i].cantidad;
-
-     cantidadCell.innerHTML = `<button onclick="reserveBook(${list[i].isbn})"  > Reservar </button>`;
+     cantidadCell.innerHTML = list[i].cantDisponible;
+     reserveButton.innerHTML = `<button onclick="reserveBook(${list[i].isbn})"  > Reservar </button>`;
+     
      
  }
  }
@@ -49,10 +48,7 @@ function drawBooks(){
 validacion y reserva, muestra listado actualizado*/
  function reserveBook(isbn){
     let token = JSON.parse(localStorage.getItem('token'))
-    if(validatedReserve(isbn) && token.token == 'ESTUDIANTE'){
-
-        
-        
+    if(validatedReserve(isbn) && token.token == 'ESTUDIANTE'){        
     reserve(isbn)
     createReport(isbn, token)
     }else{alert('No sos estudiante')}

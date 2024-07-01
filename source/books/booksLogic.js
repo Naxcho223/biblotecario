@@ -11,7 +11,7 @@ function addBookToSystem(isbn,title, author, topic, copies) {
             autor: author,
             tema: topic,
             cantidad: copies,
-            disponible:true,
+            cantDisponible:copies,
             reservas: []
             
         };

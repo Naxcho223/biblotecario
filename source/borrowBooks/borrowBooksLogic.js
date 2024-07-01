@@ -112,39 +112,54 @@ function searchBookIsbn(isbn){
 }
 
 function validatedReserve(isbn){
+    let validReservation = false
+    let token = JSON.parse(localStorage.getItem('token'))
     let libro = searchBookIsbn(isbn)
     console.log(libro.disponible)
 
     if(libro.disponible == true){
         
-        return true
+        alert ("el libro seleccionado no se encuentra disponible")
         
-    }else{ alert ("el libro seleccionado no se encuentra disponible")
-        };
-   
-
-
+    }else if(searchReservation(isbn, token)){
+        alert ("Ya reservaste el libro seleccionado")
+    }else{
+        validReservation = true
+    }
+    return validReservation
 };
+
+function searchReservation(isbn, token){
+    let reserveExist = false
+    let user = searchUser(token.email)
+    let i = 0;
+
+    while(reserveExist == false && i < user.reservas.length){
+        if(user.reservas[i].isbn == isbn){
+            reserveExist = true
+        }else{
+            i++
+        }
+    }
+
+    return reserveExist
+}
 
 
 /*se cambia la propiedad diposible del objeto almacenado en libro, 
 se busca el mismo objeto en bookslist y se reemplaza por el objeto editado */
 function reserve(isbn){
+    let reserOk= false
     let libro =searchBookIsbn(isbn)
 
-  
-    if(libro != false && libro.disponible == true){
-        
         let i = 0;
-        while(libro.disponible == true && i < booksList.length){
-
-    
+        while(reserOk == false && i < booksList.length){
             if(booksList[i].isbn === libro.isbn){
-                libro.disponible = false
+                libro.cantDisponible = libro.cantDisponible-1
                 booksList[i] = libro;
-                localStorage.setItem('booksList', JSON.stringify(booksList));
-                
-                
+                localStorage.setItem('booksList', JSON.stringify(booksList));   
+                console.log("disponiibles" + booksList[i].cantDisponible); 
+                reserOk = true            
             }else{
             i++
     
@@ -154,7 +169,7 @@ function reserve(isbn){
         }
 
 
-    }
+
 
 loadStorage()
 }
