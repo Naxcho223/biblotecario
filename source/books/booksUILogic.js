@@ -3,7 +3,8 @@ const addBookForm = document.getElementById('addBookForm');
 
 
 drawBooks()
-if (localStorage.token != "ADMIN" && localStorage.token != "BIBLIOTECARIO") {
+let token = JSON.parse(localStorage.getItem('token'))
+if (token.token != "ADMIN" && token.token != "BIBLIOTECARIO") {
   bloquear()
   
 }else{

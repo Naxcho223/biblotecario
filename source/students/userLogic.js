@@ -11,7 +11,7 @@ function addUser(credencial, nombre,apellido,email,telefono,contraseña){
             email: email,
             telefono: telefono,
             contraseña: hashPass,
-            token: JSON.stringify(['ESTUDIANTE',email])
+            token: {token:'ESTUDIANTE',email: email}
         };
         userList.push(usuario) 
         SaveJson(userList)   
@@ -27,14 +27,15 @@ function addUser(credencial, nombre,apellido,email,telefono,contraseña){
         if (localUserList == null){
             userList = [
                 {
-                    "nombre": "admin",
-                    "apellido": "admin",
-                    "email": "admin",
-                    "telefono": "",
-                    "contraseña": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
-                    "token": "ADMIN"
+                    nombre: "admin",
+                    apellido: "admin",
+                    email: "admin",
+                    telefono: null,
+                    contraseña: "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+                    token: {token:'ADMIN',email: email}
                 }
             ]
+            SaveJson(userList)
         }
         else {
             userList = JSON.parse(localUserList)

@@ -9,7 +9,8 @@ function validateUser(email, password) {
     if (user) {
         let hashedInputPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
         if (user.contraseña === hashedInputPassword) {
-            localStorage.setItem('token', user.token);
+            console.log(user.token.token);
+            localStorage.setItem('token', JSON.stringify(user.token));
             validation = true
         } else {
             alert('Contraseña incorrecta');
@@ -28,18 +29,24 @@ function loadUsers(){
         if (localUserList == null){
             userList = [
                 {
-                    "nombre": "admin",
-                    "apellido": "admin",
-                    "email": "admin",
-                    "telefono": "",
-                    "contraseña": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
-                    "token": "ADMIN"
+                    nombre: "admin",
+                    apellido: "admin",
+                    email: "admin",
+                    telefono: null,
+                    contraseña: "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+                    token: {token:'ADMIN',email: email}
                 }
             ]
+            SaveJson(userList)
         }
         else {
             userList = JSON.parse(localUserList)
         
         }   return userList
+
+}
+
+function SaveJson(userList){
+    localStorage.setItem('userList',JSON.stringify(userList))
 
 }

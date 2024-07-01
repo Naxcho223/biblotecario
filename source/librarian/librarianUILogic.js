@@ -2,8 +2,8 @@
 document.querySelector('#crearBibliotecario').addEventListener('click',guardarBibliotecario)
 document.querySelector('#cerrarSesion').addEventListener('click',cerrarSesion)
 
-
-if (localStorage.token != "ADMIN") {
+let token = JSON.parse(localStorage.getItem('token'))
+if (token.token != "ADMIN") {
     bloquear()
     
 }else{
@@ -25,7 +25,7 @@ function showUsers(){
     let users = getUsers(),
     body = document.querySelector('#bibliotecarios tbody')
 
-    const isLibrarian = (student) => student.token == "BIBLIOTECARIO";
+    const isLibrarian = (student) => student.token.token == "BIBLIOTECARIO";
     const librarian = users.filter(isLibrarian);
 
     body.innerHTML = '';

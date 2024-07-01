@@ -9,7 +9,7 @@ function addLibrarian(dni, email, contraseña){
             dni: dni,
             email: email,
             contraseña: hashPass,
-            token: JSON.parse(['BIBLIOTECARIO', email])
+            token: {token:'BIBLIOTECARIO',email: email}
         };
         userList.push(librarian) 
         SaveJson(userList)   
@@ -54,14 +54,15 @@ function getUsers(){
     if (localUserList == null){
         userList = [
             {
-                "nombre": "admin",
-                "apellido": "admin",
-                "email": "admin",
-                "telefono": "",
-                "contraseña": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
-                "token": "ADMIN"
+                nombre: "admin",
+                apellido: "admin",
+                email: "admin",
+                telefono: null,
+                contraseña: "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+                token: {token:'ADMIN',email: email}
             }
         ]
+        SaveJson(userList)
     }
     else {
         userList = JSON.parse(localUserList)

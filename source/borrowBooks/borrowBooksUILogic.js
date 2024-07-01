@@ -10,7 +10,6 @@ loadStorage()
 function drawBooks(){
     let listSorage = loadStorage();
     let list =[]
-    console.log(list)
     for(let i = 0; i < listSorage.length;i++){
         if(listSorage[i].disponible == true){
             list.push(listSorage[i])
@@ -22,8 +21,11 @@ function drawBooks(){
   
     tbody = document.querySelector('#bookListStudents tbody');
     tbody.innerHTML = '';
+
+
  
  for(let i =0; i < list.length; i++){
+    console.log("entro al for" + list[i].isbn );
    let row = tbody.insertRow(i);
     let nombreCell = row.insertCell(0),
     autorCell = row.insertCell(1),
@@ -46,10 +48,8 @@ function drawBooks(){
 /* toma los valores de los input y los pasa como parametros ejecuta 
 validacion y reserva, muestra listado actualizado*/
  function reserveBook(isbn){
-    let token = JSON.parse(localStorage.getItem("token"))
-    console.log(token[0])
-    
-    if(validatedReserve(isbn) && token[0] == 'ESTUDIANTE'){
+    let token = JSON.parse(localStorage.getItem('token'))
+    if(validatedReserve(isbn) && token.token == 'ESTUDIANTE'){
 
         
         

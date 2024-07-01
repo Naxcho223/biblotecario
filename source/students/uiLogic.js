@@ -4,7 +4,8 @@ document.querySelector('#cerrarSesion').addEventListener('click',cerrarSesion)
 showUsers()
 document.querySelector("#back"). addEventListener('click', navigateToMenu )
 
-if (localStorage.token != "ADMIN" && localStorage.token != "BIBLIOTECARIO") {
+let token = JSON.parse(localStorage.getItem('token'))
+if (token.token != "ADMIN" && token.token != "BIBLIOTECARIO") {
     bloquear()
     
 }else{
@@ -29,9 +30,10 @@ function showUsers(){
     let users = getUsers(),
     body = document.querySelector('#usuarios tbody')
 
-    const isStudent = (student) => student.token == "ESTUDIANTE";
+    const isStudent = (student) => student.token.token == "ESTUDIANTE";
+    console.log(users);
+    
     const students = users.filter(isStudent);
-
     body.innerHTML = '';
 
     for (let index = 0; index < students.length; index++) {

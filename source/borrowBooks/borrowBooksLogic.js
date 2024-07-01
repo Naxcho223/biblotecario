@@ -147,7 +147,7 @@ function createReport(isbn, token){
        let fecha =new Date()
        let reporte = {
         isbn: libro.isbn,
-        email: token[1],
+        email: token.email,
         fecha: fecha.toLocaleDateString()
 
        }

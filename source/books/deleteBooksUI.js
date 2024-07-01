@@ -1,8 +1,9 @@
 document.querySelector('#buttonDeleteBook').addEventListener('click', deleteBook );
 document.querySelector('#back').addEventListener('click', navigateToMenu)
 
+let token = JSON.parse(localStorage.getItem('token'))
 drawBooks()
-if (localStorage.token != "ADMIN" && localStorage.token != "BIBLIOTECARIO") {
+if (token.token != "ADMIN" && token.token != "BIBLIOTECARIO") {
   bloquear()
   
 }else{
