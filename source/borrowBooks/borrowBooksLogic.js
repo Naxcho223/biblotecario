@@ -147,7 +147,7 @@ function createReport(isbn, token){
        let fecha =new Date()
        let reporte = {
         isbn: libro.isbn,
-        mail: token[1],
+        email: token[1],
         fecha: fecha.toLocaleDateString()
 
        }
@@ -179,10 +179,7 @@ function createReport(isbn, token){
 
 
 }
-// buscar el libro ---
-// agregar nuevo reporte al libro en la lista de registros
-// el reporte tiene que tener el mail del usuario y fecha
-// actualizar la lista (bookList y localStorage)
+
 
 
 
