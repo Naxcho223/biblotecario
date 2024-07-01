@@ -2,6 +2,7 @@ document.querySelector('#miBoton').addEventListener('click',guardarUsuario)
 document.querySelector('#reset').addEventListener('click', resetUsers)
 document.querySelector('#cerrarSesion').addEventListener('click',cerrarSesion)
 showUsers()
+document.querySelector("#back"). addEventListener('click', navigateToMenu )
 
 if (localStorage.token != "ADMIN" && localStorage.token != "BIBLIOTECARIO") {
     bloquear()

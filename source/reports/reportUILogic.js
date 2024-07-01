@@ -1,4 +1,4 @@
-
+document.querySelector('#back').addEventListener('click', navigateToReports)
 
 
 drawReports()
@@ -39,3 +39,8 @@ function drawReports(){
      
  }
  }
+ function navigateToReports() {
+    const currentUrl = window.location.href;
+    const newUrl = currentUrl.replace('reports.html', 'menu.html');
+    window.location.href = newUrl;
+}

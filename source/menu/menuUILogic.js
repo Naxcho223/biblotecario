@@ -2,6 +2,8 @@ document.querySelector('#crearEstudiantes').addEventListener('click',navigateToE
 document.querySelector('#crearBibliotecarios').addEventListener('click',navigateToBibliotecarioForm)
 document.querySelector('#gestionLibros').addEventListener('click',navigateToLibrosForm)
 document.querySelector('#bajaLibros').addEventListener('click',navigateToDeleteLibrosForm)
+document.querySelector('#reportes').addEventListener('click', navigateToReports)
+document.querySelector('#reservar').addEventListener('click', navigateToBorrow)
 
 
 function navigateToBibliotecarioForm() {
@@ -24,6 +26,18 @@ function navigateToLibrosForm() {
 function navigateToDeleteLibrosForm() {
     const currentUrl = window.location.href;
     const newUrl = currentUrl.replace('menu.html', 'deleteBooks.html');
+    window.location.href = newUrl;
+}
+
+function navigateToReports() {
+    const currentUrl = window.location.href;
+    const newUrl = currentUrl.replace('menu.html', 'reports.html');
+    window.location.href = newUrl;
+}
+
+function navigateToBorrow() {
+    const currentUrl = window.location.href;
+    const newUrl = currentUrl.replace('menu.html', 'borrowBooks.html');
     window.location.href = newUrl;
 }
 

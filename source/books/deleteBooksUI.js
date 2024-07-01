@@ -1,4 +1,5 @@
 document.querySelector('#buttonDeleteBook').addEventListener('click', deleteBook );
+document.querySelector('#back').addEventListener('click', navigateToMenu)
 
 drawBooks()
 if (localStorage.token != "ADMIN" && localStorage.token != "BIBLIOTECARIO") {
@@ -85,6 +86,6 @@ document.querySelector('#back').addEventListener('click',navigateToMenu)
 // volver a menu
    function navigateToMenu() {
        const currentUrl = window.location.href;
-       const newUrl = currentUrl.replace('borrowBooks.html', 'menu.html');
+       const newUrl = currentUrl.replace('deleteBooks.html', 'menu.html');
        window.location.href = newUrl;
    }
