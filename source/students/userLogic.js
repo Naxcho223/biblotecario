@@ -11,7 +11,8 @@ function addUser(credencial, nombre,apellido,email,telefono,contraseña){
             email: email,
             telefono: telefono,
             contraseña: hashPass,
-            token: {token:'ESTUDIANTE',email: email}
+            token: {token:'ESTUDIANTE',email: email},
+            reservas: []
         };
         userList.push(usuario) 
         SaveJson(userList)   

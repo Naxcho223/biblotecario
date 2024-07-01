@@ -5,10 +5,10 @@ document.querySelector('#back').addEventListener('click',navigateToMenu)
 
 
 drawBooks();
-loadStorage()
 
 function drawBooks(){
     let listSorage = loadStorage();
+    let userStorage = loadStorageUsers();
     let list =[]
     for(let i = 0; i < listSorage.length;i++){
         if(listSorage[i].disponible == true){

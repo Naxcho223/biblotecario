@@ -1,6 +1,7 @@
 /*mostrar listado de libros*/
 
 let booksList = []//listado
+let userList = []
 
 
 /*buscar libros en el storage*/
@@ -68,6 +69,23 @@ function loadStorage(){
 
     return booksList
 };
+
+function loadStorageUsers(){
+    let bookLocalStorage = localStorage.getItem('userList')
+    if(bookLocalStorage == null){
+      
+        userList =[];
+    } else{
+      
+        userList = JSON.parse(bookLocalStorage)
+    }
+    
+
+    return booksList
+};
+
+
+
 
 function searchBookIsbn(isbn){ 
 
@@ -141,9 +159,34 @@ function reserve(isbn){
 loadStorage()
 }
 
+function searchUser(email){
+    let userList = JSON.parse(localStorage.getItem('userList'))
+    let encontro = false
+    let user
+    let i = 0;
+    while(encontro == false && i < userList.length){
+
+        if(userList[i].email == email){
+            user=userList[i];
+            encontro=true
+
+
+        }else{
+        i++
+
+        }
+    
+        
+    }
+    
+        return user
+
+}
+
 function createReport(isbn, token){
        
        let libro =searchBookIsbn(isbn)
+       let user = searchUser(token.email)
        let fecha =new Date()
        let reporte = {
         isbn: libro.isbn,
@@ -151,33 +194,47 @@ function createReport(isbn, token){
         fecha: fecha.toLocaleDateString()
 
        }
+        user.reservas.push(reporte)
        libro.reservas.push(reporte)
-       
-       let i = 0;
-       let encontro = false
-       while( encontro == false && i < booksList.length){
-
-   
-           if(booksList[i].isbn == libro.isbn){
-              
-               booksList[i] = libro;
-               localStorage.setItem('booksList', JSON.stringify(booksList));
-               
-               encontro = true
-           }else{
-           i++
-   
-           }
-       
-   
-       }
-
-       
-    //    
-        
-       
 
 
+       saveReportInUser(user)
+       saveReportInBook(libro)
+       
+       
+}
+
+function saveReportInBook(book){
+    let i = 0;
+    let encontro = false
+    while( encontro == false && i < booksList.length){
+        if(booksList[i].isbn == book.isbn){
+           
+            booksList[i] = book;
+            localStorage.setItem('booksList', JSON.stringify(booksList));
+            
+            encontro = true
+        }else{
+        i++
+        }
+    
+    }
+}
+
+function saveReportInUser(user){
+    let i = 0;
+    let encontro = false
+    while( encontro == false && i < userList.length){
+        if(userList[i].email == user.email){
+           
+            userList[i] = user;
+            localStorage.setItem('userList', JSON.stringify(userList));
+            encontro = true
+        }else{
+        i++
+        }
+    
+    }
 }
 
 
